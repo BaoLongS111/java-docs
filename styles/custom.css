@@ -1,0 +1,366 @@
+/* 全局基础样式 */
+:root {
+  --theme-color: #18a058;
+  --text-color-base: #2c3e50;
+  --text-color-secondary: #5f6f82;
+  --border-color: #e6eaf0;
+  --sidebar-bg: #f8fafc;
+  --code-bg: #f6f8fa;
+  --sidebar-width: 280px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei",
+    "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-color-base);
+  background: #ffffff;
+}
+
+/* 左侧栏 */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  padding-top: 18px;
+}
+
+.sidebar > h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 22px;
+}
+
+.sidebar-nav {
+  padding: 0 14px 40px;
+}
+
+.sidebar-nav ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+.sidebar-nav li {
+  margin: 1px 0;
+  list-style: none;
+}
+
+.sidebar-nav > ul > li > p,
+.sidebar-nav > ul > li > a {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 12px 0 8px;
+  cursor: pointer;
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #344054;
+  font-size: 14px;
+  line-height: 1.55;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+  background: #eaf7f0;
+  color: #128047;
+}
+
+.sidebar-nav li.active > a,
+.sidebar-nav li.open > a {
+  background: linear-gradient(90deg, #dff5e9, #f5fbf8);
+  color: #128047;
+  font-weight: 700;
+  border-left: 3px solid #18a058;
+}
+
+.sidebar-nav .folder {
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.sidebar-nav .folder::before {
+  color: #18a058;
+}
+
+/* 搜索框 */
+.search {
+  margin: 14px 12px 18px;
+  padding: 0;
+  border-bottom: none;
+}
+
+.search input {
+  width: 100%;
+  height: 36px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #dbe2ea;
+  background: #ffffff;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #1f2937;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(31, 41, 55, 0.05);
+}
+
+.search input:focus {
+  border-color: #18a058;
+  box-shadow: 0 0 0 3px rgba(24, 160, 88, 0.12);
+}
+
+.search .matching-post {
+  border-bottom: 1px solid #eef2f6;
+}
+
+.search .matching-post a {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* 主内容区 */
+.content {
+  left: var(--sidebar-width);
+  right: 0;
+  padding-top: 0;
+}
+
+.markdown-section {
+  max-width: 1280px;
+  width: calc(100% - 96px);
+  margin: 0 auto;
+  padding: 48px 56px 80px;
+  line-height: 1.8;
+  color: #243447;
+}
+
+.markdown-section h1 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.markdown-section h1:first-child {
+  font-size: 36px;
+  letter-spacing: 0.5px;
+}
+
+.markdown-section h2 {
+  font-size: 26px;
+  font-weight: 750;
+  color: #1f2937;
+  margin-top: 42px;
+  margin-bottom: 18px;
+}
+
+.markdown-section h3 {
+  font-size: 21px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.markdown-section p {
+  font-size: 16px;
+  margin: 12px 0;
+}
+
+.markdown-section a {
+  color: #18a058;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.markdown-section a:hover {
+  color: #0f7a43;
+  text-decoration: underline;
+}
+
+.markdown-section table {
+  display: table;
+  width: auto;
+  min-width: 420px;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 24px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(31, 41, 55, 0.06);
+}
+
+.markdown-section th {
+  background: #f1f5f9;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.markdown-section th,
+.markdown-section td {
+  border: 1px solid #e5e7eb;
+  padding: 9px 14px;
+  font-size: 15px;
+}
+
+.markdown-section tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.markdown-section pre {
+  background: var(--code-bg);
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+}
+
+.markdown-section code {
+  font-family: "JetBrains Mono", "Consolas", "Courier New", monospace;
+  background: #f1f5f9;
+  color: #d6336c;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
+
+.markdown-section pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.markdown-section blockquote {
+  margin-top: 28px;
+  border-left: 5px solid #18a058;
+  background: linear-gradient(90deg, #f0fbf5, #ffffff);
+  color: #475467;
+  padding: 10px 16px;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.04);
+}
+
+.markdown-section img {
+  display: block;
+  max-width: 100%;
+  margin: 22px auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 14px rgba(31, 41, 55, 0.12);
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin: 28px 0;
+}
+
+.home-card {
+  display: block;
+  padding: 22px 24px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  box-shadow: 0 6px 18px rgba(31, 41, 55, 0.06);
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(31, 41, 55, 0.1);
+  border-color: #18a058;
+}
+
+.home-card-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.home-card-desc {
+  font-size: 15px;
+  color: #5f6f82;
+  line-height: 1.7;
+}
+
+.github-corner svg {
+  width: 56px;
+  height: 56px;
+  opacity: 0.75;
+}
+
+.github-corner:hover svg {
+  opacity: 1;
+}
+
+.edit-page-button {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: #e8f7ef;
+  color: #128047 !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+  border: 1px solid #ccebd8;
+}
+
+.edit-page-button:hover {
+  background: #dff5e9;
+  color: #0f7a43 !important;
+}
+
+@media screen and (min-width: 769px) {
+  .sidebar-toggle {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 260px;
+  }
+
+  .content {
+    left: 0;
+  }
+
+  .markdown-section {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 22px 60px;
+  }
+
+  .markdown-section h1 {
+    font-size: 28px;
+  }
+
+  .markdown-section h2 {
+    font-size: 23px;
+  }
+
+  .markdown-section table {
+    min-width: 100%;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+}
